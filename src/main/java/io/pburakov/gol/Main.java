@@ -12,14 +12,16 @@ public class Main extends Application {
 
   @Override
   public void start(Stage stage) throws IOException {
-    Parent root = FXMLLoader.load(
-        Objects.requireNonNull(getClass().getClassLoader().getResource("sample.fxml")));
-    stage.setTitle("Hello World");
-    stage.setScene(new Scene(root, 300, 275));
+    Parent parent =
+        FXMLLoader.load(
+            Objects.requireNonNull(getClass().getClassLoader().getResource("main.fxml")));
+    stage.setTitle("Game of Life");
+    stage.setScene(new Scene(parent));
+    stage.setResizable(false);
     stage.show();
   }
 
   public static void main(String[] args) {
-    launch();
+    launch(args);
   }
 }
