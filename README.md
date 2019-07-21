@@ -22,10 +22,24 @@ The project was tested on Ubuntu 18 and macOS 10.14 Mojave installation.
 
 ## Running
 
-Project compilation lifecycle is managed by Maven, `exec-maven-plugin` and `javafx-maven-plugin`. To compile the project and execute it, run:
+Project compilation lifecycle is managed by Maven. To compile the project and execute it, run:
 
 ```bash
-mvn package exec:java
+mvn javafx:run
+```
+
+## Development 
+
+### Packaging
+
+```bash
+mvn clean javafx:jlink
+```
+
+Distributable package will available in `target/dist` directory. Run (macOS) executable with:
+
+```bash
+sh target/dist/bin/gol
 ```
 
 ### Notes on using IntelliJ IDEA
@@ -38,7 +52,7 @@ Here's the short summary:
 - Add it to the Project libraries in File -> Project Structure -> Libraries (use path to `javafx-sdk-12.xx/lib` folder).
 - Add it to VM options for your Run configuration in Run -> Edit Configurations -> VM Options -> `--module-path /path/to/javafx-sdk-12.xx/lib --add-modules javafx.controls,javafx.fxml`.
 
-## Further Development
+### Further Development
 
 - Dynamic grid and responsive layout (support resizable window)
 - Add more automatons
