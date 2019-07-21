@@ -29,7 +29,7 @@ public class Controller implements Initializable {
 
   private static final int GRID_WIDTH = 96;
   private static final int GRID_HEIGHT = 64;
-  private static final int RECTANGLE_SIZE = 9;
+  private static final int RECTANGLE_SIZE = 8;
   private static final double RECTANGLE_STROKE_WIDTH = 0.1;
   private static final Duration FRAME_DURATION = Duration.millis(1000 / 15); // 15 FPS
 

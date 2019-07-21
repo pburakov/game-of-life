@@ -20,5 +20,4 @@ public interface LifeAutomaton {
   String name();
 
   void nextStep();
-
 }
