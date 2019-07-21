@@ -45,6 +45,6 @@ class GridTest {
     Grid grid = new Grid(3, 3);
     grid.activateAll();
 
-    assertEquals(8, grid.countAdjacentAliveAt(1, 1));
+    assertEquals(8, grid.countAliveNeighborsAt(1, 1));
   }
 }

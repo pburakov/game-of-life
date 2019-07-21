@@ -3,6 +3,7 @@ package io.pburakov.gol.automaton;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/** In memory representation of a two-dimensional grid of cells */
 public class Grid {
 
   private int width;
@@ -21,11 +22,11 @@ public class Grid {
     }
   }
 
-  public int getHeight() {
+  int getHeight() {
     return height;
   }
 
-  public int getWidth() {
+  int getWidth() {
     return width;
   }
 
@@ -33,11 +34,13 @@ public class Grid {
     return cells[y][x];
   }
 
+  /** Toggles cell's state */
   public void toggleCellAt(int y, int x) {
     this.getCellAt(y, x).toggle();
   }
 
-  public void activateAll() {
+  /** Activates all cells in the grid */
+  void activateAll() {
     for (int y = 0; y < height; y++) {
       for (int x = 0; x < width; x++) {
         this.getCellAt(y, x).setAlive(true);
@@ -45,6 +48,7 @@ public class Grid {
     }
   }
 
+  /** Kills all cells in the grid */
   public void reset() {
     for (int y = 0; y < height; y++) {
       for (int x = 0; x < width; x++) {
@@ -53,7 +57,8 @@ public class Grid {
     }
   }
 
-  public int countAdjacentAliveAt(int y, int x) {
+  /** Returns number of activated adjacent cells */
+  int countAliveNeighborsAt(int y, int x) {
     final Iterator<Cell> iterator = new AdjacentIterator(y, x);
     int count = 0;
     while (iterator.hasNext()) {

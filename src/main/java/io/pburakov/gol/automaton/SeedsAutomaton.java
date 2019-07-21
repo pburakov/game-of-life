@@ -17,7 +17,7 @@ public class SeedsAutomaton extends BaseLifeAutomaton {
   void prepareNextGeneration() {
     for (int y = 0; y < grid.getHeight(); y++) {
       for (int x = 0; x < grid.getWidth(); x++) {
-        int aliveCount = grid.countAdjacentAliveAt(y, x);
+        int aliveCount = grid.countAliveNeighborsAt(y, x);
         final Cell cell = grid.getCellAt(y, x);
         if (!cell.isAlive() && aliveCount == 2) {
           cell.setSurvivesNextGen(true);
