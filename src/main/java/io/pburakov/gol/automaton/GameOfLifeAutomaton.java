@@ -3,6 +3,8 @@ package io.pburakov.gol.automaton;
 /** Game of Life B3/S23 cellular state automaton implementation */
 public class GameOfLifeAutomaton extends BaseLifeAutomaton {
 
+  private static final String NAME = "Game of Life (standard)";
+
   public GameOfLifeAutomaton(Grid grid) {
     super(grid);
   }
@@ -38,5 +40,10 @@ public class GameOfLifeAutomaton extends BaseLifeAutomaton {
         }
       }
     }
+  }
+
+  @Override
+  public String name() {
+    return NAME;
   }
 }

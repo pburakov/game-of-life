@@ -17,6 +17,8 @@ package io.pburakov.gol.automaton;
  */
 public interface LifeAutomaton {
 
+  String name();
+
   void nextStep();
 
 }

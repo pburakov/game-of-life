@@ -3,6 +3,8 @@ package io.pburakov.gol.automaton;
 /** Inkspot "Life Without Death" B3/S012345678 cellular state automaton implementation */
 public class InkspotAutomaton extends BaseLifeAutomaton {
 
+  private static final String NAME = "Inkspot";
+
   public InkspotAutomaton(Grid grid) {
     super(grid);
   }
@@ -30,5 +32,10 @@ public class InkspotAutomaton extends BaseLifeAutomaton {
         }
       }
     }
+  }
+
+  @Override
+  public String name() {
+    return NAME;
   }
 }

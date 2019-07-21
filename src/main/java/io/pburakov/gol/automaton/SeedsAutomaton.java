@@ -3,6 +3,8 @@ package io.pburakov.gol.automaton;
 /** Seeds B2/S cellular state automaton implementation */
 public class SeedsAutomaton extends BaseLifeAutomaton {
 
+  private static final String NAME = "Seeds";
+
   public SeedsAutomaton(Grid grid) {
     super(grid);
   }
@@ -26,5 +28,10 @@ public class SeedsAutomaton extends BaseLifeAutomaton {
         }
       }
     }
+  }
+
+  @Override
+  public String name() {
+    return NAME;
   }
 }

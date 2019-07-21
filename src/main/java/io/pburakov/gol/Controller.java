@@ -8,6 +8,8 @@ import io.pburakov.gol.automaton.LifeAutomaton;
 import io.pburakov.gol.automaton.SeedsAutomaton;
 import io.pburakov.gol.automaton.util.CellUpdateListener;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
@@ -15,11 +17,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -40,20 +39,13 @@ public class Controller implements Initializable {
   private Grid grid; // In-memory population representation
 
   private LifeAutomaton selectedAutomaton; // Selected automaton
-  private GameOfLifeAutomaton gofAutomaton;
-  private SeedsAutomaton seedsAutomaton;
-  private InkspotAutomaton inkspotAutomaton;
+  private List<LifeAutomaton> automatons = new ArrayList<>();
 
   @FXML private Button randomizeButton;
   @FXML private Button playButton;
   @FXML private Button pauseButton;
-
-  @FXML private ToggleGroup automatonSelector;
-  @FXML private RadioButton gofButton;
-  @FXML private RadioButton seedsButton;
-  @FXML private RadioButton inkspotButton;
-
-  @FXML private TilePane tilePane;
+  @FXML private ComboBox<String> automatonSelector;
+  @FXML private TilePane tilePane; // main grid display pane
 
   public Controller() {
     this.random = new Random();
@@ -61,17 +53,20 @@ public class Controller implements Initializable {
     this.timeline.setCycleCount(Animation.INDEFINITE);
 
     this.grid = new Grid(GRID_HEIGHT, GRID_WIDTH);
-    this.gofAutomaton = new GameOfLifeAutomaton(this.grid);
-    this.seedsAutomaton = new SeedsAutomaton(this.grid);
-    this.inkspotAutomaton = new InkspotAutomaton(this.grid);
+
+    automatons.add(new GameOfLifeAutomaton(this.grid));
+    automatons.add(new SeedsAutomaton(this.grid));
+    automatons.add(new InkspotAutomaton(this.grid));
   }
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     resizeTilePane(tilePane);
 
-    this.selectedAutomaton = gofAutomaton; // start default
-    gofButton.setSelected(true);
+    // populate dropdown with selection of automatons
+    automatons.forEach(automaton -> automatonSelector.getItems().add(automaton.name()));
+    selectedAutomaton = automatons.get(0); // start with default
+    automatonSelector.getSelectionModel().select(0);
 
     // fill tile pane with array of cell rectangles
     for (int i = 0; i < GRID_HEIGHT; i++) {
@@ -126,18 +121,8 @@ public class Controller implements Initializable {
   }
 
   @FXML
-  public void gofSelected() {
-    selectedAutomaton = gofAutomaton;
-  }
-
-  @FXML
-  public void seedsSelected() {
-    selectedAutomaton = seedsAutomaton;
-  }
-
-  @FXML
-  public void inkspotSelected() {
-    selectedAutomaton = inkspotAutomaton;
+  private void onAutomatonUpdate() {
+    selectedAutomaton = automatons.get(automatonSelector.getSelectionModel().getSelectedIndex());
   }
 
   @FXML
@@ -185,17 +170,12 @@ public class Controller implements Initializable {
       playButton.setDisable(true);
       pauseButton.setDisable(false);
       randomizeButton.setDisable(true);
-
-      for (Toggle toggle : automatonSelector.getToggles()) {
-        ((Node) toggle).setDisable(true);
-      }
+      automatonSelector.setDisable(true);
     } else {
       playButton.setDisable(false);
       pauseButton.setDisable(true);
       randomizeButton.setDisable(false);
-      for (Toggle toggle : automatonSelector.getToggles()) {
-        ((Node) toggle).setDisable(false);
-      }
+      automatonSelector.setDisable(false);
     }
   }
 }

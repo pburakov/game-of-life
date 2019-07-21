@@ -2,9 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.TilePane?>
@@ -26,16 +25,8 @@
       <Button fx:id="pauseButton" onAction="#onPause" text="Pause"/>
       <Button onAction="#onStep" text="Step"/>
       <Separator/>
-      <fx:define>
-        <ToggleGroup fx:id="automatonSelector"/>
-      </fx:define>
       <Text text="Automaton:"/>
-      <RadioButton text="Game of Life" toggleGroup="$automatonSelector" onAction="#gofSelected"
-                   fx:id="gofButton"/>
-      <RadioButton text="Seeds" toggleGroup="$automatonSelector" onAction="#seedsSelected"
-                   fx:id="seedsButton"/>
-      <RadioButton text="Inkspot" toggleGroup="$automatonSelector" onAction="#inkspotSelected"
-                   fx:id="inkspotButton"/>
+      <ComboBox fx:id="automatonSelector" editable="false" onAction="#onAutomatonUpdate"/>
       <Separator/>
       <Button onAction="#onExit" text="Exit"/>
     </ToolBar>
