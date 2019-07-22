@@ -2,12 +2,14 @@ package io.pburakov.gol.automaton;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 /** In memory representation of a two-dimensional grid of cells */
 public class Grid {
 
   private int width;
   private int height;
+  private final Random random;
 
   private Cell[][] cells;
 
@@ -20,6 +22,7 @@ public class Grid {
         cells[y][x] = new Cell();
       }
     }
+    this.random = new Random();
   }
 
   int getHeight() {
@@ -53,6 +56,17 @@ public class Grid {
     for (int y = 0; y < height; y++) {
       for (int x = 0; x < width; x++) {
         this.getCellAt(y, x).kill();
+      }
+    }
+  }
+
+  /** Randomly toggles cells in the grid */
+  public void randomize() {
+    for (int y = 0; y < height; y++) {
+      for (int x = 0; x < width; x++) {
+        if (random.nextBoolean()) {
+          this.toggleCellAt(y, x);
+        }
       }
     }
   }

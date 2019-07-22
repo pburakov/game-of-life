@@ -10,7 +10,6 @@ import io.pburakov.gol.automaton.util.CellUpdateListener;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -34,10 +33,8 @@ public class Controller implements Initializable {
   private static final Duration FRAME_DURATION = Duration.millis(1000 / 15); // 15 FPS
 
   private final Timeline timeline; // animation controller
-  private final Random random;
 
   private Grid grid; // In-memory population representation
-
   private LifeAutomaton selectedAutomaton; // Selected automaton
   private List<LifeAutomaton> automatons = new ArrayList<>();
 
@@ -48,7 +45,6 @@ public class Controller implements Initializable {
   @FXML private TilePane tilePane; // main grid display pane
 
   public Controller() {
-    this.random = new Random();
     this.timeline = new Timeline(new KeyFrame(FRAME_DURATION, e -> selectedAutomaton.nextStep()));
     this.timeline.setCycleCount(Animation.INDEFINITE);
 
@@ -89,13 +85,7 @@ public class Controller implements Initializable {
 
   @FXML
   private void onRandomize() {
-    for (int i = 0; i < GRID_HEIGHT; i++) {
-      for (int k = 0; k < GRID_WIDTH; k++) {
-        if (random.nextBoolean()) {
-          grid.toggleCellAt(i, k);
-        }
-      }
-    }
+    grid.randomize();
   }
 
   @FXML
