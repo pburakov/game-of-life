@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>io.pburakov.gol.automaton</OriginalElement>
+  <nodes>
+    <node x="0.0" y="223.0">io.pburakov.gol.automaton.util.CellUpdateListener</node>
+    <node x="199.00000000000003" y="0.0">io.pburakov.gol.automaton.LifeAutomaton</node>
+    <node x="185.00000000000003" y="76.0">io.pburakov.gol.automaton.BaseLifeAutomaton</node>
+    <node x="217.0" y="223.0">javafx.scene.shape.Rectangle</node>
+    <node x="371.0" y="223.0">io.pburakov.gol.automaton.Grid</node>
+    <node x="0.0" y="152.0">io.pburakov.gol.automaton.InkspotAutomaton</node>
+    <node x="377.0" y="152.0">io.pburakov.gol.automaton.SeedsAutomaton</node>
+    <node x="178.00000000000003" y="152.0">io.pburakov.gol.automaton.GameOfLifeAutomaton</node>
+    <node x="0.0" y="294.0">io.pburakov.gol.automaton.Cell</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="io.pburakov.gol.automaton.InkspotAutomaton" target="io.pburakov.gol.automaton.BaseLifeAutomaton">
+      <point x="0.0" y="-13.0" />
+      <point x="79.0" y="127.0" />
+      <point x="212.50000000000003" y="127.0" />
+      <point x="-55.0" y="13.0" />
+    </edge>
+    <edge source="io.pburakov.gol.automaton.GameOfLifeAutomaton" target="io.pburakov.gol.automaton.BaseLifeAutomaton">
+      <point x="0.0" y="-13.0" />
+      <point x="0.0" y="13.0" />
+    </edge>
+    <edge source="io.pburakov.gol.automaton.BaseLifeAutomaton" target="io.pburakov.gol.automaton.LifeAutomaton">
+      <point x="0.0" y="-13.0" />
+      <point x="0.0" y="13.0" />
+    </edge>
+    <edge source="io.pburakov.gol.automaton.SeedsAutomaton" target="io.pburakov.gol.automaton.BaseLifeAutomaton">
+      <point x="0.0" y="-13.0" />
+      <point x="449.0" y="127.0" />
+      <point x="322.5" y="127.0" />
+      <point x="55.0" y="13.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="1134.5" y="224.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
