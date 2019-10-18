@@ -14,8 +14,8 @@ Simulation can be paused, resumed and reset at any time. Step-by-step simulation
 
 ## Prerequisites
 
-- Java 12+
-- JavaFX SDK 12+
+- Java 11+
+- JavaFX SDK 11+
 - Maven
 
 The project was tested on Ubuntu 18 and macOS 10.14 Mojave installation.
@@ -41,16 +41,6 @@ Distributable package will available in `target/dist` directory. Run (macOS) exe
 ```bash
 sh target/dist/bin/gol
 ```
-
-### Notes on using IntelliJ IDEA
-
-As of JDK 11, JavaFX is no longer part of standard Java library. Please follow [these steps](https://openjfx.io/openjfx-docs/#IDE-Intellij) for setting up your IntelliJ IDE for developing this repo. 
-
-Here's the short summary:
-
-- Download official JavaFX SDK 12+ from [this page](https://gluonhq.com/products/javafx/).
-- Add it to the Project libraries in File -> Project Structure -> Libraries (use path to `javafx-sdk-12.xx/lib` folder).
-- Add it to VM options for your Run configuration in Run -> Edit Configurations -> VM Options -> `--module-path /path/to/javafx-sdk-12.xx/lib --add-modules javafx.controls,javafx.fxml`.
 
 ### Further Development
 
