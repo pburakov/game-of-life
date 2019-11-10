@@ -41,6 +41,16 @@ class GridTest {
   }
 
   @Test
+  void testCountAdjacent() {
+    Grid grid = new Grid(3, 3);
+    grid.toggleCellAt(0, 0);
+    grid.toggleCellAt(1, 0);
+    grid.toggleCellAt(2, 2);
+
+    assertEquals(3, grid.countAliveNeighborsAt(1, 1));
+  }
+
+  @Test
   void testCountAllAdjacent() {
     Grid grid = new Grid(3, 3);
     grid.activateAll();
