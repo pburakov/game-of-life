@@ -6,16 +6,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class SeedsAutomatonTest {
+public class SeedsAutomatonTest {
   private Grid grid;
 
   @BeforeEach
-  void setup() {
+  public void setup() {
     grid = new Grid(3, 3);
   }
 
   @Test
-  void testLivesOn2() {
+  public void testLivesOn2() {
     LifeAutomaton lifeAutomaton = new SeedsAutomaton(grid);
 
     grid.toggleCellAt(0, 0);
@@ -27,7 +27,7 @@ class SeedsAutomatonTest {
   }
 
   @Test
-  void testOverpopulation() {
+  public void testOverpopulation() {
     LifeAutomaton lifeAutomaton = new SeedsAutomaton(grid);
 
     grid.toggleCellAt(0, 0);
@@ -40,7 +40,7 @@ class SeedsAutomatonTest {
   }
 
   @Test
-  void testUnderpopulation() {
+  public void testUnderpopulation() {
     LifeAutomaton lifeAutomaton = new SeedsAutomaton(grid);
 
     grid.toggleCellAt(0, 0);

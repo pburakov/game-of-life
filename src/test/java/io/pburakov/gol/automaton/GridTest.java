@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-class GridTest {
+public class GridTest {
 
   @Test
-  void testToggle() {
+  public void testToggle() {
     Grid grid = new Grid(1, 2);
     assertFalse(grid.getCellAt(0, 0).isAlive());
 
@@ -19,14 +19,14 @@ class GridTest {
   }
 
   @Test
-  void testWidthHeight() {
+  public void testWidthHeight() {
     Grid grid = new Grid(42, 41);
     assertEquals(42, grid.getHeight());
     assertEquals(41, grid.getWidth());
   }
 
   @Test
-  void testActivateAllAndReset() {
+  public void testActivateAllAndReset() {
     Grid grid = new Grid(1, 2);
 
     grid.activateAll();
@@ -41,7 +41,7 @@ class GridTest {
   }
 
   @Test
-  void testCountAdjacent() {
+  public void testCountAdjacent() {
     Grid grid = new Grid(3, 3);
     grid.toggleCellAt(0, 0);
     grid.toggleCellAt(1, 0);
@@ -51,7 +51,7 @@ class GridTest {
   }
 
   @Test
-  void testCountAllAdjacent() {
+  public void testCountAllAdjacent() {
     Grid grid = new Grid(3, 3);
     grid.activateAll();
 

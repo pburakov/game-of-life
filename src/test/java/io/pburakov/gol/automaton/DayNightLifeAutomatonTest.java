@@ -6,17 +6,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class DayNightLifeAutomatonTest {
+public class DayNightLifeAutomatonTest {
 
   private Grid grid;
 
   @BeforeEach
-  void setup() {
+  public void setup() {
     grid = new Grid(3, 3);
   }
 
   @Test
-  void testUnderpopulation() {
+  public void testUnderpopulation() {
     LifeAutomaton lifeAutomaton = new DayNightLifeAutomaton(grid);
 
     grid.toggleCellAt(1, 1);
@@ -27,7 +27,7 @@ class DayNightLifeAutomatonTest {
   }
 
   @Test
-  void testLivesOn3() {
+  public void testLivesOn3() {
     LifeAutomaton lifeAutomaton = new DayNightLifeAutomaton(grid);
 
     grid.toggleCellAt(0, 0);
@@ -41,7 +41,7 @@ class DayNightLifeAutomatonTest {
   }
 
   @Test
-  void testDiesOn5() {
+  public void testDiesOn5() {
     LifeAutomaton lifeAutomaton = new DayNightLifeAutomaton(grid);
 
     grid.toggleCellAt(0, 0);

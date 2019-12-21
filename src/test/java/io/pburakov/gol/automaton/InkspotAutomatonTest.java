@@ -6,17 +6,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class InkspotAutomatonTest {
+public class InkspotAutomatonTest {
 
   private Grid grid;
 
   @BeforeEach
-  void setup() {
+  public void setup() {
     grid = new Grid(3, 3);
   }
 
   @Test
-  void testLivesOnEvenWhenAlone() {
+  public void testLivesOnEvenWhenAlone() {
     LifeAutomaton lifeAutomaton = new InkspotAutomaton(grid);
 
     grid.toggleCellAt(1, 1);
@@ -27,7 +27,7 @@ class InkspotAutomatonTest {
   }
 
   @Test
-  void testInactiveRemains() {
+  public void testInactiveRemains() {
     LifeAutomaton lifeAutomaton = new InkspotAutomaton(grid);
 
     lifeAutomaton.nextStep();
@@ -36,7 +36,7 @@ class InkspotAutomatonTest {
   }
 
   @Test
-  void testLivesOn3() {
+  public void testLivesOn3() {
     LifeAutomaton lifeAutomaton = new InkspotAutomaton(grid);
 
     grid.toggleCellAt(0, 0);
