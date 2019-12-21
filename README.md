@@ -9,6 +9,7 @@ Includes implementations of following [automatons](https://en.wikipedia.org/wiki
 - [Game of Life (standard)](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 - [Seeds](https://en.wikipedia.org/wiki/Seeds_(cellular_automaton))
 - [Inkspot or Life without Death](https://en.wikipedia.org/wiki/Life_without_Death) 
+- [Day & Night](https://en.wikipedia.org/wiki/Day_and_Night_(cellular_automaton))
 
 Simulation can be paused, resumed and reset at any time. Step-by-step simulation is also included. The grid can be interacted with using mouse, allowing activation of arbitrary cells, including random grid-fill. Automatons can be switched at any time while the simulation is paused.
 

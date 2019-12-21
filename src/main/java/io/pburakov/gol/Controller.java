@@ -1,6 +1,7 @@
 package io.pburakov.gol;
 
 import io.pburakov.gol.automaton.Cell;
+import io.pburakov.gol.automaton.DayNightLifeAutomaton;
 import io.pburakov.gol.automaton.GameOfLifeAutomaton;
 import io.pburakov.gol.automaton.Grid;
 import io.pburakov.gol.automaton.InkspotAutomaton;
@@ -53,6 +54,7 @@ public class Controller implements Initializable {
     automatons.add(new GameOfLifeAutomaton(this.grid));
     automatons.add(new SeedsAutomaton(this.grid));
     automatons.add(new InkspotAutomaton(this.grid));
+    automatons.add(new DayNightLifeAutomaton(this.grid));
   }
 
   @Override

@@ -6,17 +6,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class GameOfLifeAutomatonTest {
+public class GameOfLifeAutomatonTest {
 
   private Grid grid;
 
   @BeforeEach
-  void setup() {
+  public void setup() {
     grid = new Grid(3, 3);
   }
 
   @Test
-  void testLivesOn2() {
+  public void testLivesOn2() {
     LifeAutomaton lifeAutomaton = new GameOfLifeAutomaton(grid);
 
     grid.toggleCellAt(0, 0);
@@ -29,7 +29,7 @@ class GameOfLifeAutomatonTest {
   }
 
   @Test
-  void testLivesOn3() {
+  public void testLivesOn3() {
     LifeAutomaton lifeAutomaton = new GameOfLifeAutomaton(grid);
 
     grid.toggleCellAt(0, 0);
@@ -43,7 +43,7 @@ class GameOfLifeAutomatonTest {
   }
 
   @Test
-  void testUnderpopulation() {
+  public void testUnderpopulation() {
     LifeAutomaton lifeAutomaton = new GameOfLifeAutomaton(grid);
 
     grid.toggleCellAt(0, 0);
@@ -55,7 +55,7 @@ class GameOfLifeAutomatonTest {
   }
 
   @Test
-  void testUnderpopulationEmpty() {
+  public void testUnderpopulationEmpty() {
     LifeAutomaton lifeAutomaton = new GameOfLifeAutomaton(grid);
 
     grid.toggleCellAt(1, 1);
@@ -66,7 +66,7 @@ class GameOfLifeAutomatonTest {
   }
 
   @Test
-  void testOverpopulation() {
+  public void testOverpopulation() {
     LifeAutomaton lifeAutomaton = new GameOfLifeAutomaton(grid);
 
     grid.toggleCellAt(0, 0);
@@ -81,7 +81,7 @@ class GameOfLifeAutomatonTest {
   }
 
   @Test
-  void testReproduction() {
+  public void testReproduction() {
     LifeAutomaton lifeAutomaton = new GameOfLifeAutomaton(grid);
 
     grid.toggleCellAt(0, 0);
@@ -94,7 +94,7 @@ class GameOfLifeAutomatonTest {
   }
 
   @Test
-  void testStale() {
+  public void testStale() {
     LifeAutomaton lifeAutomaton = new GameOfLifeAutomaton(grid);
 
     grid.toggleCellAt(1, 0);
