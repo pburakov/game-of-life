@@ -15,8 +15,7 @@ Simulation can be paused, resumed and reset at any time. Step-by-step simulation
 
 ## Prerequisites
 
-- Java 11+
-- JavaFX SDK 11+
+- Java 21+
 - Maven
 
 The project was tested on Ubuntu 18 and macOS 10.14 Mojave installation.
