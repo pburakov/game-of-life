@@ -12,7 +12,7 @@
     <java.version>21</java.version>
     <javafx.version>21</javafx.version>
 
-    <mainClass>io.pburakov.gol.Main</mainClass>
+    <mainClass>gol/io.pburakov.gol.Main</mainClass>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
